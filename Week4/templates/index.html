@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Salary</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="number" name="Age" placeholder="Age" required="required" />
+        <input type="number" name="Years of Experience" placeholder="Years of Experience" default=0 required="required" />
+        <select name="level" required="required"> <option value=""> --Please Choose your job level-- </option>
+            <option value=0> Junior </option>
+            <option value=1> Senior </option>
+            <option value=2> Other </option>
+        </select>
+        <select name="education" required> <option value=""> --Please Choose your education level-- </option>
+            <option value=0> Bachelor's </option>
+            <option value=1> Master's </option>
+            <option value=2> PhD </option>
+        </select>
+        <select name="Gender" required> <option value=""> --Please Select your Gender-- </option>
+            <option value=1> Male </option>
+            <option value=2> Female </option>
+        </select>
+        <select name="Job Title" > <option alue=""> --Please Select your Title-- </option>
+            <option value=0> Account Executive </option>
+             <option value=1> Account Manager </option>
+             <option value=2> Accountant </option>
+             <option value=3> Administrative Assistant </option>
+             <option value=4> Advertising Coordinator </option>
+             <option value=5> Business Analyst </option>
+             <option value=6> Business Development Associate </option>
+             <option value=7> Business Development Manager </option>
+             <option value=8> Business Intelligence Analyst </option>
+             <option value=9> Business Operations Analyst </option>
+             <option value=10> CEO </option>
+             <option value=11> Chief Data Officer </option>
+             <option value=12> Chief Technology Officer </option>
+             <option value=13> Consultant </option>
+             <option value=14> Content Marketing Manager </option>
+             <option value=15> Copywriter </option>
+             <option value=16> Creative Director </option>
+             <option value=17> Customer Service Manager </option>
+             <option value=18> Customer Service Rep </option>
+             <option value=19> Customer Service Representative </option>
+             <option value=20> Customer Success Manager </option>
+             <option value=21> Customer Success Rep </option>
+             <option value=22> Customer Support Specialist </option>
+             <option value=23> Data Analyst </option>
+             <option value=24> Data Engineer </option>
+             <option value=25> Data Entry Clerk </option>
+             <option value=26> Data Scientist </option>
+             <option value=27> Designer </option>
+             <option value=28> Developer </option>
+             <option value=29> Digital Content Producer </option>
+             <option value=30> Digital Marketing Manager </option>
+             <option value=31> Director </option>
+             <option value=32> Director of Business Development </option>
+             <option value=33> Director of Engineering </option>
+             <option value=34> Director of Finance </option>
+             <option value=35> Director of HR </option>
+             <option value=36> Director of Human Capital </option>
+             <option value=37> Director of Human Resources </option>
+             <option value=38> Director of Marketing </option>
+             <option value=39> Director of Operations </option>
+             <option value=40> Director of Product Management </option>
+             <option value=41> Director of Sales </option>
+             <option value=42> Director of Sales and Marketing </option>
+             <option value=43> Engineer </option>
+             <option value=44> Event Coordinator </option>
+             <option value=45> Financial Advisor </option>
+             <option value=46> Financial Analyst </option>
+             <option value=47> Financial Manager </option>
+             <option value=48> Graphic Designer </option>
+             <option value=49> HR Coordinator </option>
+             <option value=50> HR Generalist </option>
+             <option value=51> HR Manager </option>
+             <option value=52> HR Specialist </option>
+             <option value=53> Help Desk Analyst </option>
+             <option value=54> Human Resources Coordinator </option>
+             <option value=55> Human Resources Director </option>
+             <option value=56> Human Resources Manager </option>
+             <option value=57> Human Resources Specialist </option>
+             <option value=58> IT Consultant </option>
+             <option value=59> IT Manager </option>
+             <option value=60> IT Project Manager </option>
+             <option value=61> IT Support </option>
+             <option value=62> IT Support Specialist </option>
+             <option value=63> Manager </option>
+             <option value=64> Marketing Analyst </option>
+             <option value=65> Marketing Coordinator </option>
+             <option value=66> Marketing Director </option>
+             <option value=67> Marketing Manager </option>
+             <option value=68> Marketing Specialist </option>
+             <option value=69> Network Engineer </option>
+             <option value=70> Office Manager </option>
+             <option value=71> Operations Analyst </option>
+             <option value=72> Operations Coordinator </option>
+             <option value=73> Operations Director </option>
+             <option value=74> Operations Manager </option>
+             <option value=75> Principal Engineer </option>
+             <option value=76> Principal Scientist </option>
+             <option value=77> Product Designer </option>
+             <option value=78> Product Development Manager </option>
+             <option value=79> Product Manager </option>
+             <option value=80> Product Marketing Manager </option>
+             <option value=81> Project Coordinator </option>
+             <option value=82> Project Engineer </option>
+             <option value=83> Project Manager </option>
+             <option value=84> Public Relations Manager </option>
+             <option value=85> Quality Assurance Analyst </option>
+             <option value=86> Recruiter </option>
+             <option value=87> Research Director </option>
+             <option value=88> Research Scientist </option>
+             <option value=89> Researcher </option>
+             <option value=90> Sales Associate </option>
+             <option value=91> Sales Director </option>
+             <option value=92> Sales Executive </option>
+             <option value=93> Sales Manager </option>
+             <option value=94> Sales Operations Manager </option>
+             <option value=95> Sales Representative </option>
+             <option value=96> Scientist </option>
+             <option value=97> Social Media Manager </option>
+             <option value=98> Social Media Specialist </option>
+             <option value=99> Software Architect </option>
+             <option value=100> Software Developer </option>
+             <option value=101> Software Engineer </option>
+             <option value=102> Software Manager </option>
+             <option value=103> Software Project Manager </option>
+             <option value=104> Strategy Consultant </option>
+             <option value=105> Supply Chain Analyst </option>
+             <option value=106> Supply Chain Manager </option>
+             <option value=107> Technical Recruiter </option>
+             <option value=108> Technical Support Specialist </option>
+             <option value=109> Technical Writer </option>
+             <option value=110> Training Specialist </option>
+             <option value=111> UX Designer </option>
+             <option value=112> UX Researcher </option>
+             <option value=113> VP of Finance </option>
+             <option value=114> VP of Operations </option>
+             <option value=115> Web Designer </option>
+             <option value=116> Web Developer </option>
+        </select>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <img src="/static/images/Original.svg" style="width: 400px;position: absolute;bottom: 10px;left: 10px;" alt="Company Logo"/>
+
+</body>
+</html>
