@@ -1,0 +1,31 @@
+file_type: csv
+dataset_name: nyt-comments-2020
+file_name: nyt-comments-2020
+table_name: edsurv
+inbound_delimiter: ","
+outbound_delimiter: "|"
+skip_leading_rows: 1
+columns: 
+    - commentID
+    - status
+    - commentSequence
+    - userID
+    - userDisplayName
+    - userLocation
+    - userTitle
+    - commentBody
+    - createDate
+    - updateDate
+    - approveDate
+    - recommendations
+    - replyCount
+    - editorsSelection
+    - parentID
+    - parentUserDisplayName
+    - depth
+    - commentType
+    - trusted
+    - recommendedFlag
+    - permID
+    - isAnonymous
+    - articleID
